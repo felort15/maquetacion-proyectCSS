@@ -78,12 +78,9 @@ body {
 
 .side {
     grid-area: side;
-}
-
-.side-content-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .footer {
