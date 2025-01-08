@@ -27,8 +27,8 @@ body {
     font-size: 16px;
 
     display: grid;
-    grid-template-columns: 55%, 45%;
-    grid-template-rows: 20%, 50%, 30%;
+    grid-template-columns: 55% 45%;
+    grid-template-rows: 20% 50% 30%;
     grid-template-areas: "nav side"
                         "main side"
                         "footer side";
@@ -38,32 +38,75 @@ body {
 
 .navbar {
     grid-area: nav;
-
-}   
-
-.logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 10px;
-    margin-left: 10px;
-}
-   .nav-list {
     display: flex;
     justify-content: center;
+    align-items: center;
+    
+
+}   
+.navbar-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: navbar 0.5s ease-in-out;
+    animation-delay: 2s;
+}
+
+@keyframes navbar {
+    0% { transform: translateY(-200px); }
+    100% { transform: translateY(0); }
+}
+
+.navbar img {
+    width: 80px;
+    height: 80px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.nav-list {
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
     list-style: none;
     padding-top: 30px;
     margin: 0;
 }
-
 .nav-list li {
     margin: 0 10px;
-}   
+    padding: 10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+} 
+.nav-list a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 700;
+}
+
+ 
 .main {
     grid-area: main;
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
 }
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: main-content 0.5s ease-in-out;
+    animation-delay: 2s;
+}
+@keyframes main-content {
+    0% { transform: translateY(-200px); }
+    100% { transform: translateY(0); }
+}   
 .main h1 {
     font-size: 40px;
     font-weight: 700;
@@ -81,6 +124,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(to right, var(--white) 50%, var(--yelow) 50%);
+}
+.side-content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side-content-container img {
+    width: 220px;
+    height: 350px;
+
+
+}
+.side-content-container p {
+   transform: rotate(-90deg);
+   font-size: 36px;
+   grid-row: 1/2;
+   grid-column: 1/2;
+   opacity: 0;
+   animation-name:side-content-text;
+   animation-duration: 0.5s;
+   animation-delay: 2.5s;
+   animation-fill-mode: forwards;
+}
+    @keyframes side-content-text {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .footer {
