@@ -176,11 +176,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--yelow);
+    background: linear-gradient(to bottom, var(--yelow) 55%, var(--blue) 45%);
     border-top-right-radius: 80px;
     animation: footer 0.5s ease-in-out 2s;
 }
-.footer-div-img1 {
+.footer-div {
     width: 100%;
     position: absolute;
     background-color: var(--blue);
@@ -198,10 +198,6 @@ body {
     width: 100px;
     margin-top: 20px;
     transition: transform 0.3s ease-in-out;
-}
-.footer-img {
-    height: 120px;
-
 }
 .footer-content-container {
     display: flex;
@@ -275,5 +271,11 @@ body {
     40% { transform: scale(1); }
     59% { transform: scale(1.2); }
     100% { transform: scale(0.2); }
+} 
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 4;
 }
-
