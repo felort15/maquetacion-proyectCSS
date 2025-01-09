@@ -1,34 +1,24 @@
-const modal = document.querySelector('.modal');
-const button1 = document.querySelector('#button-1');
-const button2 = document.querySelector('#button-2');
-const button3 = document.querySelector('#button-3');
-const close = document.querySelector('.modal-img');
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.querySelector('.modal');
+    const closeButton = document.querySelector('.modal-img img');
+    const footerButtons = document.querySelectorAll('.footer-content-container div');
 
-button1.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('visible');
-});
+    console.log('Modal element:', modal);
+    console.log('Close button:', closeButton);
+    console.log('Footer buttons:', footerButtons);
 
-button2.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('visible');
-});
-button2.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('visible');
-}); 
+    footerButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            console.log('Button clicked', e.target);
+            modal.classList.remove('hidden');
+            modal.classList.add('visible');
+            console.log('Modal classes after click:', modal.classList);
+        });
+    });
 
-button3.addEventListener('click', () => {
-    modal.classList.remove('hidden');
-    modal.classList.add('visible');
-});
-
-modal.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    modal.classList.remove('visible');
-});     
-
-close.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    modal.classList.remove('visible');
+    closeButton.addEventListener('click', () => {
+        console.log('Close clicked');
+        modal.classList.remove('visible');
+        modal.classList.add('hidden');
+    });
 });

@@ -303,8 +303,99 @@ body {
     width: 450px;
     height: 350px;
     display: flex;
-   
+    z-index: 6;
+    position: relative;
 }
+
+.modal-content--slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cards container */
+.cards {
+    width: 100%;
+    height: 80%; /* Leave space for button */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card labels */
+.cards label {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    transition: all 0.5s ease-in-out;
+}
+
+.cards label img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Slider positions */
+.modal-content--slider #slider-1:checked ~ .cards #card-1,
+.modal-content--slider #slider-2:checked ~ .cards #card-2,
+.modal-content--slider #slider-3:checked ~ .cards #card-3 {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+}
+
+.modal-content--slider #slider-1:checked ~ .cards #card-2,
+.modal-content--slider #slider-2:checked ~ .cards #card-3,
+.modal-content--slider #slider-3:checked ~ .cards #card-1 {
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.modal-content--slider #slider-1:checked ~ .cards #card-3,
+.modal-content--slider #slider-2:checked ~ .cards #card-1,
+.modal-content--slider #slider-3:checked ~ .cards #card-2 {
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* Button styles */
+.button-modal {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    margin-top: auto; /* Push to bottom */
+}
+
+.button-modal button {
+    padding: 15px 30px;
+    background-color: #ffd602;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-modal button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Hide radio buttons */
+.modal-content--slider input[type="radio"] {
+    display: none;
+}
+
 .modal-img {
     width: 50px;
     height: 50px
